@@ -17,6 +17,13 @@
 			"database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID"
 		}
 	],
+	"r2_buckets": [
+		{
+			"binding": "PHOTOS",
+			// Create before deploying: npx wrangler r2 bucket create aquasite-photos
+			"bucket_name": "aquasite-photos"
+		}
+	],
 	"vars": {
 		// Dev-only placeholder so `npm run dev` and local D1 testing work out
 		// of the box. Before deploying for real, override it with a proper

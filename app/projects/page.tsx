@@ -75,16 +75,18 @@ export default function ProjectsPage() {
       ) : (
         <ul className="flex flex-col gap-3">
           {projects.map((project) => (
-            <li
-              key={project.id}
-              className="rounded-md border border-slate-200 p-4"
-            >
-              <p className="font-medium text-slate-900">
-                {project.project_code} — {project.project_name}
-              </p>
-              <p className="text-sm text-slate-600">
-                {project.client} · {project.location}
-              </p>
+            <li key={project.id}>
+              <Link
+                href={`/projects/${project.id}`}
+                className="block rounded-md border border-slate-200 p-4 hover:border-aqua"
+              >
+                <p className="font-medium text-slate-900">
+                  {project.project_code} — {project.project_name}
+                </p>
+                <p className="text-sm text-slate-600">
+                  {project.client} · {project.location}
+                </p>
+              </Link>
             </li>
           ))}
         </ul>
