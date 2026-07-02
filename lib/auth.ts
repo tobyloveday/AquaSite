@@ -1,4 +1,5 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
+import type { NextRequest } from "next/server";
 
 const PBKDF2_ITERATIONS = 100_000;
 const SESSION_DURATION_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
@@ -135,3 +136,7 @@ export const SESSION_COOKIE = {
   name: SESSION_COOKIE_NAME,
   maxAgeSeconds: SESSION_DURATION_MS / 1000,
 };
+
+export async function getSessionFromRequest(request: NextRequest): Promise<SessionUser | null> {
+  return verifySessionCookieValue(request.cookies.get(SESSION_COOKIE_NAME)?.value);
+}

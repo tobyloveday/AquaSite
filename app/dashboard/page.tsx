@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import Link from "next/link";
 import { verifySessionCookieValue, SESSION_COOKIE } from "@/lib/auth";
 import LogoutButton from "./logout-button";
 
@@ -18,9 +19,15 @@ export default async function DashboardPage() {
         Logged in as {session.email} ({session.role})
       </p>
       <p className="max-w-md text-sm text-slate-500">
-        This is a placeholder — project selection and the rest of the
-        dashboard get built next.
+        This is a placeholder — site visits, camera capture and the map
+        view get built next.
       </p>
+      <Link
+        href="/projects"
+        className="rounded-md bg-aqua px-4 py-2 font-medium text-white"
+      >
+        View Projects
+      </Link>
       <LogoutButton />
     </main>
   );
