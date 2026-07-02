@@ -1,6 +1,14 @@
 // Declares the bindings available on `env` at runtime, matching wrangler.jsonc.
-// Regenerate/extend by hand as bindings are added (kept out of git; see .gitignore).
-interface CloudflareEnv {
-  DB: D1Database;
-  SESSION_SECRET: string;
+// Imports only the specific types needed from @cloudflare/workers-types rather
+// than referencing the whole package, since its ambient globals (Request,
+// Response, fetch, ...) conflict with the DOM types Next.js needs elsewhere.
+import type { D1Database } from "@cloudflare/workers-types";
+
+declare global {
+  interface CloudflareEnv {
+    DB: D1Database;
+    SESSION_SECRET: string;
+  }
 }
+
+export {};
