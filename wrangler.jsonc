@@ -12,9 +12,7 @@
 		{
 			"binding": "DB",
 			"database_name": "aquasite-db",
-			// Replace with the real database ID after running:
-			// npx wrangler d1 create aquasite-db
-			"database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+			"database_id": "e7b36901-acab-4d2f-bcf4-80169e90e2c5"
 		}
 	],
 	"r2_buckets": [
